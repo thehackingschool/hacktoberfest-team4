@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     },
    
     phone:{
-        type: Number,
+        type: String,
         minLength:10
     } , 
     email: {
@@ -20,7 +20,40 @@ const userSchema = new mongoose.Schema({
         required: true,
         MinLength:8
     },
-    
+   
 })
 
-export default mongoose.model("User", userSchema)
+const contactSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    subject: {
+        type: String,
+        required: true,
+    },
+    message: {
+        type: String,
+        required: true
+    }
+   
+})
+
+const newsletterSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true
+    }
+})
+
+let Users = mongoose.model("Users", userSchema)
+let Contact = mongoose.model("Contact", contactSchema)
+let Newsletter = mongoose.model("Newsletter", newsletterSchema)
+
+export {
+    Users,Contact,Newsletter
+}
