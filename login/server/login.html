@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetOut- login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #b597f6, lightgray);
+
+        }
+
+        .container {
+            max-width: 400px;
+            width: 60%;
+            max-height: 450px;
+            height: 3500px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 25px;
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-family: 600;
+            position: relative;
+        }
+
+        .container form .user-det {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+
+        }
+
+        form .user-det .input-box {
+            margin-bottom: 15px;
+            width: calc(90%);
+        }
+
+        .user-det .input-box .details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .user-det .input-box input {
+            height: 40px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+            font-size: 16px;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+
+        }
+
+        .user-det .input-box input:focus,
+        .user-det .input-box input:valid {
+            border-color: gray;
+        }
+
+        form .btn {
+            height: 45px;
+            margin: 45px 0;
+        }
+
+        form .btn input {
+            height: 100%;
+            width: 100%;
+            outline-color: none;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            background: rgba(230, 228, 228, 0.908);
+
+        }
+
+        form .btn input:hover {
+            background: #a293c0;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        @media (max-width:584px) {
+            .container {
+                max-width: 100%;
+            }
+
+            form .user-det .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            .container form .user-det {
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+
+            .user-det::-webkit-scrollbar {
+                width: 0;
+            }
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            Log In
+        </div>
+        <form action="/login" method="post">
+            <div class="user-det">
+
+                <div class="input-box">
+                    <span class="email">Email</span>
+                    <input type="email" name="email" id="" placeholder="abc@xyz.com" required>
+                </div>
+                <div class="input-box">
+                    <span class="phone-num">Phone Number</span>
+                    <input type="number" name="phone" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="input-box">
+                    <span class="state">Password</span>
+                    <input type="password" name="password" id="" placeholder="Enter your password" required>
+                </div>
+
+            </div>
+            <div class="btn">
+                <input type="submit" value="Log In">
+            </div>
+        </form>
+
+    </div>
+
+
+
+</body>
+<script>
+     let btn= document.querySelector(".btn")
+    btn.addEventListener("click",()=>{
+     
+        let email= document.querySelector("#email")
+        let phone= document.querySelector("#phone")
+        let password= document.querySelector("#password")
+        
+        if(name.value == "" ) {
+            alert( "Please provide your name!" );
+            name.focus() ;
+            return false;
+      }
+      if(email.value == "" ) {
+            alert( "Please provide your email!" );
+            email.focus() ;
+            return false;
+      }
+      if(phone.value == "" ) {
+            alert( "Please enter valid phone number!" );
+            phone.focus() ;
+            return false;
+      }
+      if(password.value == "" ) {
+            alert( "Enter valid password!" );
+            password.focus() ;
+            return false;
+      }
+     
+      if(!(password_pattern.test(password.value))) {
+        // console.log(!(password_pattern.test(password.value)))
+            alert( "Enter a strong  password!" );
+            password.focus() ;
+            return false;
+      }
+      if(!(phone_pattern.test(phone.value))) {
+        // console.log(!(password_pattern.test(password.value)))
+            alert( "Enter a valid Phone number!" );
+            password.focus() ;
+            return false;
+      }
+        
+    })
+
+</script>
+
+</html>
