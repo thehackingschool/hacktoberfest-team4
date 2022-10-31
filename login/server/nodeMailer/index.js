@@ -1,16 +1,14 @@
 import nodemailer from "nodemailer";
 
-let mailBody = `<h1>Hey Ifra,your appointment is confirmed!</h1>`
-
-async function sendEmail(){
+async function sendEmail(data){
     try {
         let transporter = nodemailer.createTransport({
-            host:"mail.csmafia.com",
-            port: 465,
-            secure: true,
+            service:'gmail',
+            host: "smtp.gmail.com",
+            secure: false,
             auth:{
-                user:"cfi@csmafia.com",
-                pass:"codeforindiaFTW"
+                user:"emailtesting399@gmail.com",
+                pass:"cvpwnjpwkqfscjje"
             },
             tls:{
                 rejectUnauthorized:false
@@ -18,10 +16,10 @@ async function sendEmail(){
         })
 
         let info = await transporter.sendMail({
-            from: `CFI TASKY <cfi@csmafia.com>`,
-            subject:"This is a test",
-            to:'amtulifra12@gmail.com',
-            html: mailBody
+            from: `LET OUT <emailtesting399@gmail.com>`,
+            subject: data.subject,
+            to: data.to,
+            html: data.html
         })
 
         console.log(info.messageId)
@@ -31,6 +29,5 @@ async function sendEmail(){
         console.error(error);
     }
 }
-
 
 export default sendEmail;
